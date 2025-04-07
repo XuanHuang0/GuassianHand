@@ -1,0 +1,13 @@
+What you need to do is:
+
+#1: Read the OBJ files:
+    - MANO_UV_left.obj    - MANO_UV_right.obj
+
+#2: Copy the .ft and .vt to the MANO model, or any other hand mesh with the MANO mesh topology (i.e. created by applying shape/pose parameters on MANO).
+
+EXAMPLE:  In case you use our public Mesh package (https://github.com/MPI-IS/mesh) and have a texture image at PATH_PNG:
+    final_mesh = Mesh(filename=path_ALIGN)
+    temp_mesh = Mesh(filename='use_here_attached_obj')
+    final_mesh.ft = temp_mesh
+    final_mesh.vt = temp_mesh
+    final_mesh.set_texture_image(PATH_PNG)
