@@ -480,6 +480,8 @@ class GS3DRenderer(BaseModule):
         out_list = []
        
         vert_uv, vert_d, intermediates_vert = get_uvd(query_points_valid, vert3d_uv[0], face_uv, face_uv_xy)
+        vert_uv = vert_uv.unsqueeze(0)
+        vert_d = vert_d.unsqueeze(0)
         # normalize it to [-1, 1]
         vert_uv[..., 0] = 2.0 * (vert_uv[..., 0] /1) - 1.0
         vert_uv[..., 1] = 2.0 * (vert_uv[..., 1] /0.5) - 1.0
