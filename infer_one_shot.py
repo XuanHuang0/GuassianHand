@@ -227,6 +227,8 @@ class TGS(torch.nn.Module, SaverMixin):
         verts_uv,verts_d=[],[]
         for b in range(batch_size):
             vert_uv, vert_d, intermediates_vert = get_uvd(pointclouds[b], vert3d_uv[0], face_uv, face_uv_xy)
+            vert_uv = vert_uv.unsqueeze(0)
+            vert_d = vert_d.unsqueeze(0)
             verts_uv.append(vert_uv)
             verts_d.append(vert_d)
         vert_uv=torch.cat(verts_uv,0)
